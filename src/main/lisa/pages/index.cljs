@@ -9,9 +9,6 @@
    [:> icon {:class "h-10 mx-auto"}]
    label])
 
-(defn- gray-line [num]
-  [:span.text-gray-400.bg-gray-400 (repeat num "a")])
-
 (defn- profil []
   [:section {:class "w-3/4 mx-auto pt-10"}
    [:h2.py-5 "Kurzprofil"]
