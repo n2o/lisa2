@@ -5,7 +5,13 @@
             [reagent.core :as r]))
 
 (def ^:private menu
-  [{:label "Home"
+  [{:label "Start"
+    :href "#"}
+   {:label "Leistungen"
+    :href "#"}
+   {:label "Profil"
+    :href "#"}
+   {:label "Arbeiten mit Lasse"
     :href "#"}])
 
 (defn- menu-links [props]
@@ -56,13 +62,14 @@
 (defn- footer
   "Define the academy footer."
   []
-  [:footer
-   [:nav.flex.bg-blue-dark.p-6.text-white.mt-5
+  [:footer.text-gray-700
+   [:hr.mx-5]
+   [:nav.flex.p-6
     [:div.flex.items-center.flex-no-shrink.mr-6
-     [:span.font-semibold.text-xl.tracking-tight "Systemische Beratung Freund"]]
+     [:span.tracking-tight "Systemische Beratung Freund"]]
     [:div.ml-auto]
-    [:a.text-white.mr-3 {:target :_blank :href "#todo"} "Impressum"]
-    [:a.text-white {:target :_blank :href "#todo"} "Datenschutz"]]])
+    [:a.mr-3 {:target :_blank :href "#todo"} "Impressum"]
+    [:a {:target :_blank :href "#todo"} "Datenschutz"]]])
 
 ;; -----------------------------------------------------------------------------
 
@@ -77,7 +84,7 @@
   (utils/set-website-title! title)
   (utils/set-website-description! description)
   [:main
-   [:div.dark:bg-gray-700.dark:text-white.flex.flex-col.min-h-screen
+   [:div.flex.flex-col.min-h-screen
     [header]
     [:div.container.mx-auto.px-3.pt-3.grow body]
     [footer]]])
