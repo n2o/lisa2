@@ -27,4 +27,4 @@
 (rf/reg-event-fx
  :init
  (fn [_ _]
-   {:fx [[:dispatch [:dark-mode/init]]]}))
+   {:fx []}))
