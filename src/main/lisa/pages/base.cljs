@@ -83,7 +83,7 @@
 (defn- footer
   "Define the academy footer."
   []
-  [:footer.text-gray-700
+  [:footer.text-gray-700.text-sm
    [:hr.mx-5]
    [:nav.flex.p-6
     [:div.flex.items-center.flex-no-shrink.mr-6
@@ -107,5 +107,5 @@
   [:main
    [:div.flex.flex-col.min-h-screen
     [header]
-    [:div.container.mx-auto.px-3.pt-3.grow body]
+    [:div.grow body]
     [footer]]])
