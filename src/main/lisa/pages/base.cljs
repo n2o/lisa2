@@ -1,8 +1,24 @@
 (ns lisa.pages.base
   (:require ["@heroicons/react/24/outline" :refer [Bars3Icon XMarkIcon]]
+            ["framer-motion" :refer [motion]]
             [lisa.utils :as utils]
             [re-frame.core :as rf]
             [reagent.core :as r]))
+
+(defn- basic-move-in
+  "A basic move-in animation. Pass any transition you like."
+  [from-direction transition component]
+  (let [direction (case from-direction
+                    :top {:y "-200%"}
+                    :bottom {:y "200%"}
+                    :left {:x "-200%"}
+                    {:x "200%"})]
+    [:> (.-div motion)
+     {:initial direction
+      :animate {:x 0 :y 0}
+      :exit direction
+      :transition transition}
+     component]))
 
 (def ^:private menu
   [{:label "Start"
@@ -15,12 +31,17 @@
     :href "#"}])
 
 (defn- menu-links [props]
-  [:section
-   (for [{:keys [label href]} menu]
-     [:a (merge {:href href
-                 :key (str "menu-item-" label)}
-                props)
-      label])])
+  [basic-move-in
+   :left
+   {:type :spring
+    :bounce 0.1
+    :duration 0.5}
+   [:section
+    (for [{:keys [label href]} menu]
+      [:a (merge {:href href
+                  :key (str "menu-item-" label)}
+                 props)
+       label])]])
 
 (defn- nav []
   (let [open? (r/atom false)]
@@ -32,10 +53,10 @@
           [:button.inline-flex.items-center.justify-center.rounded-md.p-2.hover:bg-gray-100.hover:text-white
            {:aria-expanded "false",
             :aria-controls "mobile-menu",
-            :type "button"}
+            :type :button
+            :on-click #(swap! open? not)}
            [:span.sr-only "Open main menu"]
-           [:> (if @open? XMarkIcon Bars3Icon) {:className "text-gray-900 h-7"
-                                                :on-click #(swap! open? not)}]]]
+           [:> (if @open? XMarkIcon Bars3Icon) {:className "text-gray-900 h-7"}]]]
          [:div.flex.flex-1.items-center.justify-center.sm:items-stretch.sm:justify-start
           [:div.flex.flex-shrink-0.items-center
            [:img.block.h-8.w-auto.lg:hidden
