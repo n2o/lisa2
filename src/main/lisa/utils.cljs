@@ -1,7 +1,6 @@
 (ns lisa.utils
   (:require [com.fulcrologic.guardrails.core :refer [=> >defn ?]]
             [goog.string :refer [format]]
-            [lisa.config :as config]
             [oops.core :refer [oset!]]))
 
 (>defn set-website-title!
@@ -9,7 +8,7 @@
   [title]
   [(? string?) :ret any?]
   (when title
-    (let [new-title (format "%s – %s" title config/application-name)]
+    (let [new-title (format "%s – %s" title "Systemische Beratung Freund")]
       (oset! js/document [:title] new-title))))
 
 (>defn set-website-description!
