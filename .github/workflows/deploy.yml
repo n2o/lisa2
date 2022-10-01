@@ -27,7 +27,6 @@ jobs:
       - name: Build CLJS->JS
         run: |
           yarn install
-          yarn shadow:sitemap
           yarn build
 
       - name: Deploy 🚀
