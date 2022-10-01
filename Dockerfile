@@ -15,8 +15,7 @@ RUN clojure -P -M:frontend
 
 COPY . .
 
-RUN yarn shadow:sitemap && \
-  yarn build
+RUN yarn build
 
 # ------------------------------------------------------------------------------
 
