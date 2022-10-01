@@ -1,6 +1,5 @@
 (ns lisa.navigation
   (:require [lisa.routes :as routes]
-            [lisa.specs]
             [re-frame.core :as rf]
             [reitit.coercion.spec :as rss]
             [reitit.frontend :as reitit-frontend]
