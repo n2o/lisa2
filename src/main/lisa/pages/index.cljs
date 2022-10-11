@@ -33,9 +33,8 @@
   [base {:page/title "Start"
          :page/description "TODO"}
    [:<>
-    [:img {:src "/img/background.webp"}]
+    [:img {:src "/img/sandbank.webp"}]
     [:div.container.mx-auto
-     [:h1 "Systemische Beratung Freund"]
      [leistungen]
      [profil]]]])
 
