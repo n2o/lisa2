@@ -12,15 +12,14 @@
 (defn- profil []
   [:section {:class "w-3/4 mx-auto pt-10"}
    [:h2.py-5 "Kurzprofil"]
-   [:div.flex.flex-row
+   [:div.grid.grid-cols-1.md:grid-cols-2
     [:div.pr-3
      [:p [utils/lorem 42]]
      [:p [utils/lorem 23]]
      [:p [utils/lorem 32]]
      [:p "---"]
      [:p [utils/lorem 12]]]
-    [:img {:class "w-96"
-           :src "/img/womandog.webp"}]]])
+    [:img.rounded-3xl {:src "/img/womandog.webp"}]]])
 
 (defn- leistungen []
   [:div.grid.md:grid-cols-4.grid-cols-2.gap-4.py-10
@@ -35,7 +34,7 @@
    [:<>
     [:div.relative
      [:img {:src "/img/sandbank.webp"}]
-     [:div {:class "absolute top-1/2 left-1/3 -translate-x-1/3 -translate-y-1/2 px-4 py-2 bg-gray-600/50"}
+     [:div {:class "absolute rounded-3xl top-1/2 left-1/3 -translate-x-1/3 -translate-y-1/2 px-4 py-2 bg-gray-600/50"}
       [:h1 {:class "text-white py-1 text-xl md:text-5xl xl:text-6xl"}
        "Systemische Beratung Freund"]]]
     [:div.container.mx-auto
