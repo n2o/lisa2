@@ -1,24 +1,8 @@
 (ns lisa.pages.base
   (:require ["@heroicons/react/24/outline" :refer [Bars3Icon XMarkIcon]]
-            ["framer-motion" :refer [motion]]
             [lisa.utils :as utils]
             [re-frame.core :as rf]
             [reagent.core :as r]))
-
-(defn- basic-move-in
-  "A basic move-in animation. Pass any transition you like."
-  [from-direction transition component]
-  (let [direction (case from-direction
-                    :top {:y "-200%"}
-                    :bottom {:y "200%"}
-                    :left {:x "-200%"}
-                    {:x "200%"})]
-    [:> (.-div motion)
-     {:initial direction
-      :animate {:x 0 :y 0}
-      :exit direction
-      :transition transition}
-     component]))
 
 (def ^:private menu
   [{:label "Start"
@@ -31,7 +15,7 @@
     :href "#"}])
 
 (defn- menu-links [props]
-  [basic-move-in
+  [utils/basic-move-in
    :left
    {:type :spring
     :bounce 0.1
